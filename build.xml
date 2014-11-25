@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="calc" default="">
+    
+    <target name="clean">
+        <delete dir="classes"/>
+        <delete file="helloCalc.jar"/>
+    </target>
+    
+    <target name="compile" description="compile java source code">
+        <mkdir dir="classes"/>
+        <javac srcdir="src/com/istic/calc/app" destdir="classes" />
+    </target>
+    
+    <target name="jar" depends="compile" description=" create jar file">
+        <jar destfile="helloCalc.jar">
+            <fileset dir="classes" includes="**/*.class"/>
+            <manifest>
+                <attribute name="Main-Class" value="MainConsole"/>
+            </manifest>
+        </jar>   
+    </target>
+    
+</project>
